@@ -21,35 +21,27 @@ Instalasi & Menjalankan Proyek
 Clone repository backend dari:
 https://github.com/abdau88/uas_pbf_soal_A.git
 
-Jalankan perintah berikut:
+Menggunakan Http::get() dari Laravel HTTP Client untuk mengambil data pasien & obat dari backend:
 
-bash
 Copy
 Edit
-composer install
-php spark serve
-Import file SQL dan ubah nama database menjadi db_rumahsakit_[NIM_ANDA]
+$response = Http::get('http://localhost:8080/pasien');
+$dataPasien = $response->json()['data'];
+CRUD Pasien & Obat
+Tiap entitas punya controller tersendiri (PasienController, ObatController) yang berisi method index, create, store, edit, update, destroy.
 
-🌐 Frontend
-Clone repository ini
+View disusun rapi dalam folder resources/views/pasien dan resources/views/obat, dan dirender melalui Blade templating engine.
 
-Jalankan:
+Fitur Pencarian
+Fungsi index() memiliki logika pencarian sederhana yang memfilter data berdasarkan nama atau kategori:
 
-bash
+php
 Copy
 Edit
-composer install
-npm install && npm run dev
-php artisan serve
-Pastikan koneksi ke backend sesuai (localhost:8080)
+if ($search) {
+    $dataObat = array_filter($dataObat, function ($obat) use ($search) {
+        return str_contains(strtolower($obat['nama_obat']), $search);
+    });
+}
 
-Tambahan (Opsional)
-Jika tersedia:
 
-Fitur export data ke PDF/Excel
-
-Upload gambar pasien
-
-Simulasi login sederhana
-
-Error handling dari API dengan alert
