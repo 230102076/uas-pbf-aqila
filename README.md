@@ -1,4 +1,4 @@
-Sistem Informasi Rumah Sakit – UAS PBF 2025
+<h1> Sistem Informasi Rumah Sakit <h1>
 Deskripsi
 Repositori ini merupakan hasil pengerjaan Ujian Akhir Semester Mata Kuliah Praktikum Pemrograman Berbasis Framework Semester Genap Tahun Ajaran 2024/2025.
 Sistem ini dibuat menggunakan Laravel untuk frontend dan CodeIgniter 4 untuk backend, dengan studi kasus pengelolaan data pasien dan obat pada rumah sakit.
